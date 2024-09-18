@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR | CONTACT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+  --primary-color: #ffffff;
+  --secondary-color: #676767;
+
+  --button-color: #ffffff;
+  --h1-color: #ffffff;
+
+
+
+ 
+
+}
+@font-face {
+    font-family: virtual;
+    src: url(./fonts/Pigarnos.ttf)
+}
+
+[data-theme="dark"] {
+ 
+  --secondary-color: #818386;
+  --bg-color: #010712;
+  --button-color: #818386;
+  --primary-color: #ffffff;
+  --secondary-color: #676767;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+color: white;
+}
+
+.contact-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+
+  flex-direction:row-reverse;
+}
+
+.left-col {
+  width: 50vw;
+  height: 100%;
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/53/637/desktop-wallpaper-black-rolls-royce-mobile-luxury-car-u-mobile-rolls-royce-phone.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center ;
+}
+
+.logo {
+  width: 10rem;
+  padding: 1.5rem;
+}
+
+.right-col {
+background-color: black;
+  width: 48vw;
+  height: 100vh;
+  padding: 5rem 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1, label, button, .description {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  font-family: virtual;
+
+}
+
+h4 {
+
+  text-transform: uppercase;
+  font-size: 2.5rem;
+color: white;
+  font-weight: 800;
+  font-family: virtual;
+}
+
+p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  letter-spacing: 0.01rem;
+  width: 40vw;
+  margin: 0.25rem 0;
+  font-family: virtual;
+
+}
+
+label, .description {
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  font-size: 0.625rem;
+}
+
+form {
+  width: 31.25rem;
+  position: relative;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+input, textarea, label {
+  width: 40vw;
+  display: block;
+  font-family: virtual;
+  color: white;
+
+}
+
+p, placeholder, input, textarea {
+  font-family:virtual;
+  background-color: transparent;
+
+}
+
+input::placeholder, textarea::placeholder {
+  color: white;
+  background-color: transparent;
+  font-family: virtual;
+
+}
+
+input, textarea {
+  color: var(--primary-color);
+  font-weight: 500;
+  background: var(--bg-color);
+  border: none;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  outline: none;
+  font-family: virtual;
+
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: 300;
+ 
+
+  width: 10rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+background-color: rgba(255, 0, 0, 0.458);
+color: white;
+}
+
+input:hover, textarea:hover, button:hover {
+  opacity: 0.5;
+  color: white;
+
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 160px;
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+}
+
+.description {
+    margin-left: 1.25rem;
+  }
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+
+
+input:checked + .slider {
+    background-color: transparent;
+  
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#error, #success-msg {
+  width: 40vw;
+  margin: 0.125rem 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-family: 'Jost';
+  color: var(--secondary-color);
+  }
+
+
+  #success-msg {
+  transition-delay: 0.5s;
+  color: white;
+  }
+
+@media only screen and (max-width: 950px) {
+  .logo {
+    width: 8rem;
+  }
+  h1 {
+    font-size: 1.75rem;
+  }
+  p {
+    font-size: 0.7rem;
+  }
+  input, textarea, button {
+    font-size: 0.65rem;
+  }
+  .description {
+    font-size: 0.3rem;
+    margin-left: 0.4rem;
+  }
+  button {
+    width: 7rem;
+  }
+  .theme-switch-wrapper {
+    width: 120px;
+  }
+  .theme-switch {
+  height: 28px;
+  width: 50px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 0.25rem;
+  content: "";
+  width: 20px;
+  height: 20px;
+  left: 0.25rem;
+  position: absolute;
+  transition: .4s;
+}
+  input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+.slider.round {
+  border-radius: 15px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+}
+    </style>
+</head>
+<body>
+    
+    <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+    <label for="menu-icon"></label>
+    <nav class="nav" id="navis"> 	
+   
+        <ul class="pt-5">
+            <li><a href="./index.html" id="fontd">Home</a></li>
+            <li><a href="./collection.html" id="fontd">Cars Collection</a></li>
+            <li><a href="./about.html" id="fontd">About Us</a></li>
+            <li><a href="./contact.html" id="fontd">Contact Us</a></li>
+        </ul>
+       </nav>
+<div class="contact-container">
+    <div class="left-col">
+     
+    </div>
+    <div class="right-col">
+      <div class="theme-switch-wrapper">
+
+  </div>
+      
+      <h4>Contact us</h1>
+
+      
+      <form id="contact-form" method="post">
+
+    <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+     
+    <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+        
+    <textarea rows="6" placeholder="Your Message" id="message" name="message" required></textarea>
+        <a href="javascript:void(0)"><button type="submit" id="submit" name="submit">Send</button></a>
+    
+  </form>
+  <div id="error" style="color: red;"></div>
+  <div id="success-msg" style="color: white;"></div>
+    </div>
+  </div>
+  <script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+
+
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const message = document.getElementById('message');
+const contactForm = document.getElementById('contact-form');
+const errorElement = document.getElementById('error');
+const successMsg = document.getElementById('success-msg');
+const submitBtn = document.getElementById('submit');
+  
+const validate = (e) => {
+  e.preventDefault();
+ 
+  if (name.value.length < 3) {
+    errorElement.innerHTML = 'Your name should be at least 3 characters long.';
+    return false;
+  } 
+  
+  if (!(email.value.includes('.') && (email.value.includes('@')))) {
+    errorElement.innerHTML = 'Please enter a valid email address.';
+    return false;
+  } 
+
+  if (!emailIsValid(email.value)) {
+    errorElement.innerHTML = 'Please enter a valid email address.';
+    return false;
+  }
+
+  if (message.value.length < 15) {
+    errorElement.innerHTML = 'Please write a longer message.';
+    return false;
+  }
+
+  errorElement.innerHTML = '';
+  successMsg.innerHTML = 'Thank you! I will get back to you as soon as possible.'; 
+
+  e.preventDefault();
+  setTimeout(function () {
+    successMsg.innerHTML = '';
+    document.getElementById('contact-form').reset();
+  }, 6000);
+
+  return true;
+
+}
+
+const emailIsValid = email => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+submitBtn.addEventListener('click', validate);
+  </script>
+</body>
+</html>

@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR | COLLLECTION</title>
+
+    <style>
+      @font-face {
+    font-family: virtual;
+    src: url(./fonts/Pigarnos.ttf);
+}
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: virtual;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    gap: 10vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 150vh;
+    background-color: #000000;
+}
+
+.cards {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+}
+
+#card-one {
+    top: 130%;
+    background-image: url(https://wallpapers.com/images/hd/4k-ultra-hd-porsche-ezokzio4re5qrn2g.jpg);
+}
+
+#card-two {
+    top: 230%;
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/275/628/1017/2015-porsche-macan-turbo-black-sedan-wallpaper-preview.jpg);
+}
+
+#card-three {
+    top: 250%;
+    background-image: url(https://4kwallpapers.com/images/walls/thumbs_3t/14286.jpg);
+}
+
+.text{
+    position: absolute;
+    width: 100%;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.text h2{
+    font-size: 8vw;
+    color: #fff;
+    text-align: center;
+    z-index:99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
+}
+
+
+.foot-parent{
+    height: 800px;
+    width: 100%;
+    background-color: white;
+    
+
+  }
+.footcon{
+  width: 92%;
+
+  height: 85%;
+
+}
+.con1{
+  height: 40%;
+
+  width: 100%;
+  display: block;
+  display: flex;
+  align-items: center;
+}
+.con2{
+  height: 60%;
+
+  width: 100%;
+  display: flex;
+}
+.incon1{
+  height:100%;
+  width: 32%;
+
+
+  
+}
+.incon2{
+  height:100%;
+  width: 32%;
+  margin-left: 1%;
+
+
+}
+.incon3{
+  height:100%;
+  width: 32%;
+  margin-left: 1%;
+
+
+
+}
+.in{
+  height: 100%;
+  width: 100%;
+  background-color: #000000d9;
+  display: flex;
+  align-items:center ;
+  justify-content: center;
+}
+p{
+    font-size: 24px;
+}
+@media(max-width: 800px) {
+  .con2{
+    flex-direction: column;
+
+height: 90%;
+  }
+  .incon1{
+    height:32%;
+margin-top: 1%;
+width: 100%;
+
+  
+    
+  }
+  .incon2{
+    height:32%;
+    width: 100%;
+
+    margin-top: 1%;
+   
+
+  
+  }
+  .incon3{
+    height:32%;
+    margin-top: 1%;
+
+    width: 100%;
+
+  
+  }
+  .foot-parent{
+    height: 1100px;
+
+ 
+  }
+  .con1{
+    height: 10%;
+
+
+  }
+  #cap{
+    color: red;
+  }
+}
+
+
+.section-center{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 6;
+  text-align: center;
+  transform: translateY(-50%);
+}
+h1{
+  font-family: virtual;
+  font-weight: 800;
+  font-size: 7vw;
+  line-height: 1;
+
+  text-align: center;
+
+
+ 
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+}
+
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+.menu-icon:checked + label,
+.menu-icon:not(:checked) + label{
+  position: fixed;
+  top: 63px;
+  right: 75px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+.menu-icon:checked + label:before,
+.menu-icon:not(:checked) + label:before{
+  position: absolute;
+  content: '';
+  display: block;
+  width: 30px;
+  height: 20px;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  border-top: 2px solid #ececee;
+  border-bottom: 2px solid #ececee;
+  transition: border-width 100ms 1500ms ease, 
+              top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1), 
+              background-color 200ms ease,
+              transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu-icon:checked + label:after,
+.menu-icon:not(:checked) + label:after{
+  position: absolute;
+  content: '';
+  display: block;
+  width: 22px;
+  height: 2px;
+  z-index: 20;
+  top: 10px;
+  right: 4px;
+  background-color: #ececee;
+  margin-top: -1px;
+  transition: width 100ms 1750ms ease, 
+              right 100ms 1750ms ease,
+              margin-top 100ms ease, 
+              transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu-icon:checked + label:before{
+  top: 10px;
+  transform: rotate(45deg);
+  height: 2px;
+  background-color: #ececee;
+  border-width: 0;
+  transition: border-width 100ms 340ms ease, 
+              top 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1), 
+              background-color 200ms 500ms ease,
+              transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu-icon:checked + label:after{
+  width: 30px;
+  margin-top: 0;
+  right: 0;
+  transform: rotate(-45deg);
+  transition: width 100ms ease,
+              right 100ms ease,  
+              margin-top 100ms 500ms ease, 
+              transform 200ms 1700ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav{
+  position: fixed;
+  top: 33px;
+  right: 50px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  margin: 0;
+  z-index: 9;
+  overflow: hidden;
+  box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
+  background-color: #fff08194;
+  animation: border-transform 7s linear infinite;
+  transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),  
+              right 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 250ms 1100ms ease,
+              width 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 650ms 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes border-transform{
+    0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
+  14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
+  28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
+  42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
+  56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; } 
+  70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; } 
+  84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
+}
+
+.menu-icon:checked ~ .nav {
+  animation-play-state: paused;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 200%;
+  height: 200%;
+  transition: top 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),  
+              right 350ms 700ms cubic-bezier(0.23, 1, 0.32, 1),
+              transform 250ms 700ms ease,
+              width 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1),
+              height 750ms 1000ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav ul{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 6;
+  text-align: center;
+  transform: translateY(-50%);
+  list-style: none;
+}
+.nav ul li{
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 10px 0;
+  text-align: center;
+  list-style: none;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+  transition: all 250ms linear;
+}
+.nav ul li:nth-child(1){
+  transition-delay: 200ms;
+}
+.nav ul li:nth-child(2){
+  transition-delay: 150ms;
+}
+.nav ul li:nth-child(3){
+  transition-delay: 100ms;
+}
+.nav ul li:nth-child(4){
+  transition-delay: 50ms;
+}
+.nav ul li a{
+    font-family: virtual;
+  font-size: 9vh;
+
+  line-height: 1.2;
+  font-weight: 800;
+  display: inline-block;
+  position: relative;
+  color: #ececee;
+  transition: all 250ms linear;
+  text-decoration: none;
+
+}
+.nav ul li a:hover{
+  text-decoration: none;
+
+}
+.nav ul li a:after{
+  display: block;
+  position: absolute;
+  top: 50%;
+  content: '';
+  height: 2vh;
+  margin-top: -1vh;
+  width: 0;
+  left: 0;
+
+  opacity: 0.8;
+  transition: width 250ms linear;
+
+}
+.nav ul li a:hover:after{
+  width: 100%;
+}
+
+
+.menu-icon:checked ~ .nav  ul li {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 350ms ease,
+              transform 250ms ease;
+}
+.menu-icon:checked ~ .nav ul li:nth-child(1){
+  transition-delay: 1400ms;
+}
+.menu-icon:checked ~ .nav ul li:nth-child(2){
+  transition-delay: 1480ms;
+}
+.menu-icon:checked ~ .nav ul li:nth-child(3){
+  transition-delay: 1560ms;
+}
+.menu-icon:checked ~ .nav ul li:nth-child(4){
+  transition-delay: 1640ms;
+}
+
+
+
+.logo {
+	position: absolute;
+	top: 60px;
+	left: 50px;
+	display: block;
+	z-index: 11;
+	transition: all 250ms linear;
+}
+.logo img {
+	height: 26px;
+	width: auto;
+	display: block;
+}
+
+
+
+@media screen and (max-width: 991px) {
+  .menu-icon:checked + label,
+  .menu-icon:not(:checked) + label{
+    right: 55px;
+  }
+  .logo {
+    left: 30px;
+  }
+  .nav{
+    right: 30px;
+  }
+  h1{
+    font-size: 9vw;
+    -webkit-text-stroke: 2px transparent;
+
+  
+  }
+  .nav ul li a{
+    font-size: 8vh;
+  }
+}
+
+
+.section-center {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 6;
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+h1 {
+    font-family: virtual;
+  margin-top: 15px;
+    font-weight: 300;
+    font-size: 7vw;
+    line-height: 1;
+    color: transparent; 
+  
+    -webkit-text-fill-color: transparent; 
+}
+
+
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: -9999px; 
+}
+
+
+.menu-icon:checked + label,
+.menu-icon:not(:checked) + label {
+    position: fixed;
+    top: 63px;
+    right: 75px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.menu-icon:checked + label:before,
+.menu-icon:not(:checked) + label:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 30px;
+    height: 20px;
+    top: 0;
+    left: 0;
+   
+    transition: border-width 100ms ease, 
+                top 100ms ease, 
+                height 100ms ease, 
+                background-color 200ms ease,
+                transform 200ms ease;
+}
+
+.menu-icon:checked + label:after,
+.menu-icon:not(:checked) + label:after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 22px;
+    height: 2px;
+    top: 10px;
+    right: 4px;
+
+    margin-top: -1px;
+    transition: width 100ms ease, 
+                right 100ms ease,
+                margin-top 100ms ease, 
+                transform 200ms ease;
+}
+
+.menu-icon:checked + label:before {
+    top: 10px;
+    transform: rotate(45deg);
+    height: 2px;
+
+    border-width: 0;
+}
+
+.menu-icon:checked + label:after {
+    width: 30px;
+    margin-top: 0;
+    right: 0;
+    transform: rotate(-45deg);
+}
+
+
+.nav {
+    position: fixed;
+    top: 33px;
+    right: 50px;
+    display: block;
+    width: 80px;
+    height: 80px;
+    z-index: 9;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    background-color: #141414;
+    animation: border-transform 7s linear infinite;
+    backdrop-filter: blur(10px);
+    font-weight: 300;
+
+}
+
+@keyframes border-transform {
+    0%, 100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
+    14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+    28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; }
+    42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; }
+    56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; }
+    70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; }
+    84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; }
+}
+
+.menu-icon:checked ~ .nav {
+    animation-play-state: paused;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 200%;
+    height: 200%;
+}
+
+.nav ul {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 6;
+    text-align: center;
+    transform: translateY(-50%);
+    list-style: none;
+}
+
+.nav ul li {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: all 250ms linear;
+  margin-top: 15px;
+
+}
+
+.nav ul li:nth-child(1) { transition-delay: 200ms; }
+.nav ul li:nth-child(2) { transition-delay: 150ms; }
+.nav ul li:nth-child(3) { transition-delay: 100ms; }
+.nav ul li:nth-child(4) { transition-delay: 50ms; }
+
+.nav ul li a {
+    font-family: virtual;
+ 
+    font-size: 5vw;
+
+    line-height: 1.2;
+    font-weight: 800;
+    display: inline-block;
+    position: relative;
+    color: #ededed;
+    transition: all 250ms linear;
+    font-weight: 300;
+    margin-top: 15px;
+
+}
+
+
+
+.nav ul li a:after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    content: '';
+    height: 2vh;
+    margin-top: -1vh;
+    width: 0;
+    left: 0;
+
+    opacity: 0.8;
+
+}
+
+.nav ul li a:hover:after {
+    width: 100%;
+    font-weight: 300;
+    
+}
+
+.menu-icon:checked ~ .nav ul li {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 350ms ease, transform 250ms ease;
+}
+
+.menu-icon:checked ~ .nav ul li:nth-child(1) { transition-delay: 1400ms; }
+.menu-icon:checked ~ .nav ul li:nth-child(2) { transition-delay: 1480ms; }
+.menu-icon:checked ~ .nav ul li:nth-child(3) { transition-delay: 1560ms; }
+.menu-icon:checked ~ .nav ul li:nth-child(4) { transition-delay: 1640ms; }
+
+.logo {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    display: block;
+    z-index: 11;
+    transition: all 250ms linear;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    margin-top: -40px;
+    margin-left: -30px;
+}
+a{
+    text-decoration: none;
+    color:  rgb(210, 210, 210);
+}
+
+@media (max-width: 991px) {
+    .menu-icon:checked + label,
+    .menu-icon:not(:checked) + label {
+        right: 55px;
+    }
+
+    .logo {
+        left: 30px;
+    }
+
+    .nav {
+        right: 30px;
+    }
+
+    h1 {
+        font-size: 3vw;
+       
+        
+    }
+
+    .nav ul li a {
+        font-size: 3vw;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <a href="./index.html" class="logo" target="_blank">
+
+        <img src="./images/VR__3_-removebg-preview.png" alt="">
+    </a>
+
+      <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+      <label for="menu-icon"></label>
+      <nav class="nav" id="navis"> 	
+     
+          <ul class="pt-5">
+              <li><a href="./index.html" id="fontd">Home</a></li>
+              <li><a href="./collection.html" id="fontd">Cars Collection</a></li>
+              <li><a href="./about.html" id="fontd">About Us</a></li>
+              <li><a href="./contact.html" id="fontd">Contact Us</a></li>
+          </ul>
+         </nav>
+    <div id="main">
+        <div class="text" style="position: absolute;z-index: 9999999999999999999999999999999999999999999999999999999999999999; top: 30%;left: 0%;">
+            <h2 style="color: rgb(217, 217, 217);font-size: 5vw;">Our Collection .</h2>
+        </div>
+        <div class="cards" id="card-one">       <div class="copy" style="height: 100%;">
+            <p style="position: absolute;">
+              <a href="./911.html" style="text-decoration: none;color: black;list-style: none;"><div class="abstex" style="position: absolute;
+              top: 50%;left: 50%;transform: translate(-50%,-50%);font-family: virtual;width: 180px;height: 50px;background-color: rgba(255, 255, 255, 0.767);border-radius: 2vw;color: rgb(0, 0, 0);display: flex;align-items: center;justify-content: center;backdrop-filter: blur(2px);text-decoration: none;color: black;list-style: none;"><p style="font-size: 16px;text-decoration: none;color: black;list-style: none;font-weight: 600;">EXPERIENCE 360°</p></div>
+        </a> 
+
+            </div></div>
+        <div class="cards" id="card-two">
+            <div class="copy" style="height: 100%;">
+                <p style="position: absolute;">
+                  <a href="./six.html" style="text-decoration: none;color: black;list-style: none;"><div class="abstex" style="position: absolute;
+                  top: 50%;left: 50%;transform: translate(-50%,-50%);font-family: virtual;width: 180px;height: 50px;background-color: rgba(255, 255, 255, 0.767);border-radius: 2vw;color: rgb(0, 0, 0);display: flex;align-items: center;justify-content: center;backdrop-filter: blur(2px);text-decoration: none;color: black;list-style: none;"><p style="font-size: 16px;text-decoration: none;color: black;list-style: none;font-weight: 600;">EXPERIENCE 360°</p></div>
+            </a> 
+    
+                </div>
+        </div>
+        <div class="cards" id="card-three">
+            <div class="copy" style="height: 100%;">
+                <p style="position: absolute;">
+                  <a href="./sports.html" style="text-decoration: none;color: black;list-style: none;"><div class="abstex" style="position: absolute;
+                  top: 50%;left: 50%;transform: translate(-50%,-50%);font-family: virtual;width: 180px;height: 50px;background-color: rgba(255, 255, 255, 0.767);border-radius: 2vw;color: rgb(0, 0, 0);display: flex;align-items: center;justify-content: center;backdrop-filter: blur(2px);text-decoration: none;color: black;list-style: none;"><p style="font-size: 16px;text-decoration: none;color: black;list-style: none;font-weight: 600;">EXPERIENCE 360°</p></div>
+            </a> 
+    
+                </div>
+        </div>
+    </div>
+
+   
+<div class="foot-parent">
+    <div class="in">
+    <div class="footcon">
+      <div class="con1">
+        <p style="font-weight: 900;font-size: 8vw;font-family: virtual;color: rgb(210, 210, 210);word-spacing: 05px;" class="shimmer">Let's Talk</p>
+      </div>
+      <div class="con2" style="border-bottom: 1px solid rgba(255, 255, 255, 0.821);">
+        <div class="incon1" style="color:  rgb(210, 210, 210);">
+          <p style="margin-top: 15px;font-weight: 100;" id="cap">PAGES</p>
+         <a href="./index.html"> <p style="margin-top: 25px;font-weight: 100;">Home</p></a>
+         <a href="./collection.html"> <p style="margin-top: 15px;font-weight: 100;">Car Collection</p></a>
+         <a href="./about.html"> <p style="margin-top: 15px;font-weight: 100;">About</p></a>
+          <a href="./contact.html"><p style="margin-top: 15px;font-weight: 100;">Contact</p></a>
+        </div>
+        <div class="incon2" style="color:  rgb(210, 210, 210);">
+          <p style="margin-top: 15px;font-weight: 100;" id="cap">CAR COLLECTION</p>
+          <a href="./911.html"><p style="margin-top: 25px;font-weight: 100;">Porshe 911</p></a>
+          <a href="./six.html"><p style="margin-top: 15px;font-weight: 100;">Porshe Cayene</p></a>
+         <a href="./sports.html"> <p style="margin-top: 15px;font-weight: 100;">Porshe Sports</p></a>
+         
+        </div>
+        <div class="incon3" style="color:  rgb(210, 210, 210);">       
+        <p style="margin-top: 15px;font-weight: 100;" id="cap">SOCIALS</p>
+          <a href="https://m.facebook.com/"><p style="margin-top: 25px;font-weight: 100;">Facebook</p></a>
+          <a href="https://pk.linkedin.com/"><p style="margin-top: 15px;font-weight: 100;">Linked In</p></a>
+          <a href="https://twitter.com/?lang=en"><p style="margin-top: 15px;font-weight: 100;">Twitter</p></a>
+    
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+        integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"
+        integrity="sha512-tHvUcUQYi35zApvAa5TNR3fNhBQkVtkmWKfacnpxmix4/VTGz1lGjIVyLMp7gLgAvg+aKJjnVKokXJNS5GZ+/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var tl = gsap.timeline({scrollTrigger:{
+    trigger:"#main",
+
+    start:"38% 50%",
+    end:"100% 50%",
+    scrub:2,
+    pin:true
+}});
+tl
+.to(".text",{
+    top: "-7%",
+},'a')
+.to("#card-one",{
+    top: "35%",
+},'a')
+.to("#card-two",{
+    top: "130%"
+},'a')
+.to("#card-two",{
+    top: "42%"
+},'b')
+.to("#card-one",{
+    width: "65%",
+    height: "65vh"
+},'b')
+.to("#card-three",{
+    top: "130%"
+}, 'b')
+.to("#card-three",{
+    top: "50%"
+}, 'c')
+.to("#card-two",{
+    width: "70%",
+    height: "70vh"
+},'c')
+    </script>
+</body>
+</html>

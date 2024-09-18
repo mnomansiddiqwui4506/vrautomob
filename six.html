@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360° Virtual Car Showroom</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #carImage {width: 100%;height: 100%;object-fit: cover;filter: contrast(105%);}
+        #container {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            cursor: grab;
+        }
+
+
+        button {
+            margin-top: 20px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        #trunkButton {
+            /* position: absolute; */
+            top: 50%;
+            left: 95%;
+            /* z-index: 10; */
+            border-radius: 100%;
+            transform: translate(-50%,-50%);
+            background-color:#222222c3;
+            border: none;
+             /* backdrop-filter: blur(10px); */
+            height: 60px;
+            width: 60px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* -webkit-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+-moz-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+box-shadow: -1px -1px 35px -7px rgba(230,30,30,1); */
+background-color: #0f1318c4;
+            border: 1px solid #1b1c2fb3;
+            backdrop-filter: blur(10px);
+        }
+  
+     #trunkButton img{
+        height: 46px;
+        width: 46px;
+        filter: contrast(50%) brightness(500%);
+     }
+     #trunkButton img:hover{
+        filter: contrast(100%) brightness(100%);
+
+     }
+     #trunkButton:hover{
+        -webkit-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+-moz-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+background-color: red;
+     }
+      #trunkButton1 {
+            /* position: absolute; */
+            top: 50%;
+            left: 95%;
+            /* z-index: 10; */
+            border-radius: 100%;
+            transform: translate(-50%,-50%);
+            background-color:#222222c3;
+            border: none;
+             backdrop-filter: blur(10px);
+            height: 60px;
+            width: 60px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* -webkit-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+-moz-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+box-shadow: -1px -1px 35px -7px rgba(230,30,30,1); */
+background-color: #0f1318c4;
+            border: 1px solid #1b1c2fb3;
+            backdrop-filter: blur(10px);
+
+        }
+        #trunkButton2 {
+            /* position: absolute; */
+            top: 50%;
+            left: 95%;
+            /* z-index: 10; */
+            border-radius: 100%;
+            transform: translate(-50%,-50%);
+            background-color:#222222c3;
+            border: none;
+             backdrop-filter: blur(10px);
+            height: 60px;
+            width: 60px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* -webkit-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+-moz-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+box-shadow: -1px -1px 35px -7px rgba(230,30,30,1); */
+background-color: #0f1318c4;
+            border: 1px solid #1b1c2fb3;
+            backdrop-filter: blur(10px);
+
+        }
+  
+     #trunkButton1 img{
+        height: 38px;
+        width: 38px;
+        filter: contrast(50%) brightness(500%);
+     }
+     #trunkButton1 img:hover{
+        filter: contrast(100%) brightness(100%);
+
+     }
+     #trunkButton1:hover{
+        -webkit-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+-moz-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+background-color: red;
+     }
+
+     #trunkButton2 img{
+        height: 38px;
+        width: 38px;
+        filter: contrast(50%) brightness(500%);
+     }
+     #trunkButton2 img:hover{
+        filter: contrast(100%) brightness(100%);
+
+     }
+     #trunkButton2:hover{
+        -webkit-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+-moz-box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+box-shadow: -1px -1px 35px -7px rgba(230,30,30,1);
+background-color: red;
+     }
+
+
+
+     .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+.tp{
+    position:absolute;
+    top: 43%;
+            left: 95%;
+            z-index: 10;
+            transform: translate(-50%,-50%);
+opacity:1;
+
+}
+.tp1{
+    position:absolute;
+    top: 43%;
+            left: 95%;
+            z-index: 10;
+opacity:1;
+            transform: translate(-50%,-50%);
+}
+.tp2{
+    position:absolute;
+    top: 54%;
+            left: 95%;
+            z-index: 10;
+            transform: translate(-50%,-50%);
+opacity:1;
+
+}
+        .tooltip {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(0, 0, 0, 0);
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+right: -10px;
+        top: 08px; /* Center vertically */
+            /* transform: translateY(50%); Adjust vertical alignment */
+            opacity: 0;
+            transition: 0.3s;
+         
+  font-family: arial;
+  
+            overflow: hidden;
+        }
+    #tch2{
+        width: 160px;
+
+    }
+        .tooltip-container:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+right: 30px;
+          
+
+        }
+        @media (max-width: 650px) {
+    #container  #carImage{
+        height: 69vh; /* Set height to 50vh */
+       
+    }
+    #container{
+        background-color: rgb(9, 9, 9);
+    }
+    .tp,#must{
+    position:absolute;
+    top: 80%;
+            left: 25%;
+            z-index: 10;
+            transform: translate(-50%,-50%);
+opacity:01;
+
+}
+.tp1,#must1{
+    position:absolute;
+    top: 80%;
+            left: 50%;
+            z-index: 10;
+opacity:01;
+            transform: translate(-50%,-50%);
+}
+.tp2,#must2{
+    position:absolute;
+    top: 80%;
+            left: 75%;
+            z-index: 10;
+            transform: translate(-50%,-50%);
+opacity:01;
+
+}
+.tooltip {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(0, 0, 0, 0);
+            color: #000000;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+right: -10px;
+        top: 08px; /* Center vertically */
+            /* transform: translateY(50%); Adjust vertical alignment */
+            opacity: 0;
+            transition: 0.3s;
+         
+  font-family: arial;
+  
+            overflow: hidden;
+        }
+    #tch2{
+        width: 160px;
+
+    }
+        .tooltip-container:hover .tooltip {
+            visibility: hidden;
+            opacity: 1;
+right: 30px;
+          
+
+        }
+   
+  
+}
+    </style>
+</head>
+
+<body>
+    <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+    <label for="menu-icon"></label>
+    <nav class="nav"> 		
+        <ul class="pt-5">
+            <li><a href="./index.html" id="fontd">Home</a></li>
+            <li><a href="./collection.html" id="fontd">Car Collection</a></li>
+            <li><a href="./about.html" id="fontd">About Us</a></li>
+            <li><a href="./contact.html" id="fontd">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div id="container">
+        <img id="carImage" draggable="false" src="audio/tycan/141.webp"
+            alt="360° Car Image">
+       
+        <!-- <button id="trunkButton"><img src="./images/download-removebg-preview (1) (1).png" alt=""></button> -->
+<!-- <div class="tp" id="must">
+        <div class="tooltip-container" >
+            <button type="button" class="btn" id="trunkButton"><img src="./images/9f5f1962-8d79-4876-921c-b01d35405a12.png" alt=""></button>
+            <span class="tooltip" id="tch">Open Trunk</span>
+        </div>
+    </div> -->
+    <div class="tp1" id="must1">
+        <div class="tooltip-container" >
+           <a href="./interior.html"> <button type="button" class="btn ti1" id="trunkButton1"><img src="https://cdn-icons-png.flaticon.com/512/2/2087.png" alt=""></button></a>
+            <span class="tooltip" id="tch1">View Interior</span>
+        </div>
+    </div>
+    <div class="tp2" id="must2">
+        <div class="tooltip-container" >
+           <a href="./ex1.html"> <button type="button" class="btn ti1" id="trunkButton2"><img src="https://static.thenounproject.com/png/3146970-200.png" alt=""></button></a>
+            <span class="tooltip" id="tch2">Customize Exterior</span>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const container = document.getElementById('container');
+        const change = document.getElementById('tch');
+        const carImage = document.getElementById('carImage');
+        const colorButton = document.getElementById('colorButton');
+        const trunkButton = document.getElementById('trunkButton');
+        const trunkButton1 = document.getElementById('trunkButton1');
+        const trunkButton2 = document.getElementById('trunkButton2');
+     
+
+        let isDragging = false;
+        let startX = 0;
+        let currentImageIndex = 0;
+        let isTrunkOpen = false;
+        let canRotate = false;
+        let isTransitioning = false; 
+      
+   
+        const images = [
+         
+    "audio/tycan/101.webp",
+    "audio/tycan/102.webp",
+    "audio/tycan/103.webp",
+    "audio/tycan/104.webp",
+    "audio/tycan/105.webp",
+    "audio/tycan/106.webp",
+    "audio/tycan/107.webp",
+    "audio/tycan/108.webp",
+    "audio/tycan/109.webp",
+    "audio/tycan/110.webp",
+    "audio/tycan/111.webp",
+    "audio/tycan/112.webp",
+    "audio/tycan/113.webp",
+    "audio/tycan/114.webp",
+    "audio/tycan/115.webp",
+    "audio/tycan/116.webp",
+    "audio/tycan/117.webp",
+    "audio/tycan/118.webp",
+    "audio/tycan/119.webp",
+    "audio/tycan/120.webp",
+    "audio/tycan/121.webp",
+    "audio/tycan/122.webp",
+    "audio/tycan/123.webp",
+    "audio/tycan/124.webp",
+    "audio/tycan/125.webp",
+    "audio/tycan/126.webp",
+    "audio/tycan/127.webp",
+    "audio/tycan/128.webp",
+    "audio/tycan/129.webp",
+    "audio/tycan/130.webp",
+    "audio/tycan/131.webp",
+    "audio/tycan/132.webp",
+    "audio/tycan/133.webp",
+    "audio/tycan/134.webp",
+    "audio/tycan/135.webp",
+    "audio/tycan/136.webp",
+    "audio/tycan/137.webp",
+    "audio/tycan/138.webp",
+    "audio/tycan/139.webp",
+    "audio/tycan/140.webp",
+    "audio/tycan/141.webp",
+    "audio/tycan/142.webp",
+    "audio/tycan/143.webp",
+    "audio/tycan/144.webp",
+    "audio/tycan/145.webp",
+    "audio/tycan/146.webp",
+    "audio/tycan/147.webp",
+    "audio/tycan/148.webp",
+    "audio/tycan/149.webp",
+    "audio/tycan/150.webp",
+    "audio/tycan/151.webp",
+    "audio/tycan/152.webp",
+    "audio/tycan/153.webp",
+    "audio/tycan/154.webp",
+    "audio/tycan/155.webp",
+    "audio/tycan/156.webp",
+    "audio/tycan/157.webp",
+    "audio/tycan/158.webp",
+    "audio/tycan/159.webp",
+    "audio/tycan/160.webp",
+    "audio/tycan/161.webp",
+    "audio/tycan/162.webp",
+    "audio/tycan/163.webp",
+    "audio/tycan/164.webp",
+    "audio/tycan/165.webp",
+    "audio/tycan/166.webp",
+    "audio/tycan/167.webp",
+    "audio/tycan/168.webp"
+
+   
+
+          
+        ];
+
+        const trunkaudio = [
+      "audio/tycaan/101.webp",
+      "audio/tycaan/102.webp",
+      "audio/tycaan/103.webp",
+      "audio/tycaan/104.webp",
+      "audio/tycaan/105.webp",
+      "audio/tycaan/106.webp",
+      "audio/tycaan/107.webp",
+      "audio/tycaan/108.webp",
+      "audio/tycaan/109.webp",
+      "audio/tycaan/110.webp",
+      "audio/tycaan/111.webp",
+      "audio/tycaan/112.webp",
+      "audio/tycaan/113.webp",
+      "audio/tycaan/114.webp",
+      "images/tycaan/115.webp",
+      "images/tycaan/116.webp",
+      "images/tycaan/117.webp",
+      "images/tycaan/118.webp",
+      "images/tycaan/119.webp",
+      "images/tycaan/120.webp",
+      "images/tycaan/121.webp",
+      "images/tycaan/122.webp",
+      "images/tycaan/123.webp",
+      "images/tycaan/124.webp",
+      "images/tycaan/125.webp",
+      "images/tycaan/126.webp",
+      "images/tycaan/127.webp",
+      "images/tycaan/128.webp",
+      "images/tycaan/129.webp",
+      "images/tycaan/130.webp",
+      "images/tycaan/131.webp",
+      "images/tycaan/132.webp",
+      "images/tycaan/133.webp",
+      "images/tycaan/134.webp",
+      "images/tycaan/135.webp",
+      "images/tycaan/136.webp",
+      "images/tycaan/137.webp",
+      "images/tycaan/138.webp",
+      "images/tycaan/139.webp",
+      "images/tycaan/140.webp",
+      "images/tycaan/141.webp",
+      "images/tycaan/142.webp",
+      "images/tycaan/143.webp",
+      "images/tycaan/144.webp",
+      "images/tycaan/145.webp",
+      "images/tycaan/146.webp",
+      "images/tycaan/147.webp",
+      "images/tycaan/148.webp",
+      "images/tycaan/149.webp",
+      "images/tycaan/150.webp",
+      "images/tycaan/151.webp",
+      "images/tycaan/152.webp",
+      "images/tycaan/153.webp",
+      "images/tycaan/154.webp",
+      "images/tycaan/155.webp",
+      "images/tycaan/156.webp",
+      "images/tycaan/157.webp",
+      "images/tycaan/158.webp",
+      "images/tycaan/159.webp",
+      "images/tycaan/160.webp",
+      "images/tycaan/161.webp",
+      "images/tycaan/162.webp",
+      "images/tycaan/163.webp",
+      "images/tycaan/164.webp",
+      "images/tycaan/165.webp",
+      "images/tycaan/166.webp",
+      "images/tycaan/167.webp",
+      "images/tycaan/168.webp",
+      "images/tycaan/169.webp",
+      "images/tycaan/170.webp",
+      "images/tycaan/171.webp",
+      "images/tycaan/172.webp",
+      "images/tycaan/173.webp",
+      "images/tycaan/174.webp",
+      "images/tycaan/175.webp",
+      "images/tycaan/176.webp",
+      "images/tycaan/177.webp",
+      "images/tycaan/178.webp",
+      "images/tycaan/179.webp",
+      "images/tycaan/180.webp",
+      "images/tycaan/181.webp",
+      "images/tycaan/182.webp",
+      "images/tycaan/183.webp",
+      "images/tycaan/184.webp",
+      "images/tycaan/185.webp",
+      "images/tycaan/186.webp",
+      "images/tycaan/187.webp",
+      "images/tycaan/188.webp",
+      "images/tycaan/189.webp",
+      "images/tycaan/190.webp",
+      "images/tycaan/191.webp",
+      "images/tycaan/192.webp",
+      "images/tycaan/193.webp",
+      "images/tycaan/194.webp",
+      "images/tycaan/195.webp"
+    
+        ];
+
+        const startUrl = "audio/tycan/146.webp";
+        const startUrls = "audio/tycan/141.webp";
+        window.onload = function() {
+            moveToStartImage(() => {
+                currentImageIndex = 1; 
+                changeImage(currentImageIndex); 
+                canRotate = true; 
+            });
+        };
+
+        function moveToStartImage(callback) {
+            let currentIndex = images.findIndex(url => url === startUrls);
+            if (currentIndex === -1) {
+                currentIndex = 0; 
+            }
+            const targetIndex = 0; 
+            const step = -1; 
+
+            const interval = setInterval(() => {
+                if (currentIndex > targetIndex) {
+                    currentIndex += step;
+                    changeImage(currentIndex);
+                } else {
+                    clearInterval(interval);
+                    if (callback) callback();
+                }
+            }, 40);
+        }
+
+        container.addEventListener('mousedown', (event) => {
+            if (canRotate && !isTransitioning) { 
+                isDragging = true;
+                startX = event.clientX;
+                container.style.cursor = 'grabbing';
+                event.preventDefault(); 
+            }
+        });
+
+        container.addEventListener('mousemove', (event) => {
+            if (isDragging && canRotate) {
+                const deltaX = event.clientX - startX;
+                if (deltaX > 1) {
+                    currentImageIndex = (currentImageIndex + 1) % images.length; 
+                    changeImage(currentImageIndex);
+                    startX = event.clientX; 
+                } else if (deltaX < -1) {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length; 
+                    changeImage(currentImageIndex);
+                    startX = event.clientX; 
+                }
+            }
+        });
+
+        container.addEventListener('mouseup', () => {
+            isDragging = false;
+            container.style.cursor = 'grab';
+        });
+
+        container.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                container.style.cursor = 'grab';
+            }
+        });
+
+        function changeImage(index) {
+            carImage.src = images[index]; 
+        }
+
+
+        trunkButton.addEventListener('click', () => {
+            if (!isTrunkOpen) {
+                canRotate = false; 
+                trunkButton.style.display = 'none';
+                trunkButton1.style.display = 'none';
+                trunkButton2.style.display = 'none';
+                change.style.opacity = 0;
+                moveToTargetUrl(() => {
+                    openTrunk();
+                });
+            } else {
+                closeTrunk();
+                trunkButton.style.display = 'none';
+                trunkButton1.style.display = 'none';
+                trunkButton2.style.display = 'none';
+                change.style.opacity = 0;
+
+            }
+      
+    
+                    currentImageIndex = 46;
+    
+
+            
+        });
+
+        function moveToTargetUrl(callback) {
+            isTransitioning = true; 
+            let currentIndex = currentImageIndex;
+            const targetIndex = images.findIndex(url => url === startUrl);
+            const step = currentIndex < targetIndex ? 1 : -1;
+
+            const interval = setInterval(() => {
+                currentIndex += step;
+                changeImage(currentIndex);
+
+                if (currentIndex === targetIndex) {
+                    clearInterval(interval);
+                    isTransitioning = false; 
+                    if (callback) callback();
+                }
+            }, 50);
+        }
+
+        function openTrunk() {
+            let currentTrunkImageIndex = 0;
+            const trunkImageCount = trunkImages.length;
+            const interval = setInterval(() => {
+                currentTrunkImageIndex++;
+                if (currentTrunkImageIndex >= trunkImageCount) {
+                    clearInterval(interval);
+                    isTrunkOpen = true;
+                    
+                    canRotate = false; 
+                    change.innerText = 'Close Trunk';
+                    trunkButton.style.display = 'flex';
+                    trunkButton.style.backgroundColor = 'red';
+                    change.style.visibility = 'visible';
+                    change.style.opacity = 1;
+                    change.style.right = '20px';
+            
+                }
+                if (currentTrunkImageIndex < trunkImageCount) {
+                    carImage.src = trunkImages[currentTrunkImageIndex];
+                }
+            }, 45);
+        }
+
+        function closeTrunk() {
+            let currentTrunkImageIndex = trunkImages.length - 1;
+            const interval = setInterval(() => {
+                currentTrunkImageIndex--;
+                if (currentTrunkImageIndex < 0) {
+                    clearInterval(interval);
+                    isTrunkOpen = false;
+                    change.innerText = 'Open Trunk';          
+                    trunkButton.style.backgroundColor = '#222222c3';
+                    change.style.visibility = 'hidden';
+                    change.style.right = '0px';
+                trunkButton.style.display = 'flex';
+                trunkButton1.style.display = 'flex';
+                trunkButton2.style.display = 'flex';
+                    trunkButton.addEventListener('mouseover', () => {
+                         trunkButton.style.backgroundColor = 'red';
+                    change.style.visibility = 'visible';
+                    change.style.opacity = 1;
+    change.style.transition = '0.3s';
+    change.style.right = '20px';
+
+
+});
+trunkButton.addEventListener('mouseout', () => {
+
+    trunkButton.style.backgroundColor = '#222222c3';
+    change.style.visibility = 'hidden';
+    change.style.opacity = 0;
+    change.style.transition = '0.3s';
+    change.style.right = '0px';
+
+
+
+});
+
+                    canRotate = true; 
+                }
+                if (currentTrunkImageIndex >= 0) {
+                    carImage.src = trunkImages[currentTrunkImageIndex];
+                }
+            }, 45);
+        }
+
+    </script>
+</body>
+
+</html>
